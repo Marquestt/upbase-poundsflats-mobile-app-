@@ -1,5 +1,16 @@
 .header{
     display: flex;
-    align-items: center;
+    flex-flow: column wrap;
+    gap: 24px;
+}
+
+.containerIcons {
+    display: flex;
     justify-content: space-between;
+    width: 100%;
+}
+
+.titulo {
+    font-size: 24px;
+
 }

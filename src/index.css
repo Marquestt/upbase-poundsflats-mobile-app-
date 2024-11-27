@@ -44,6 +44,9 @@ body {
   font-family: "Jura", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 345px;
+  padding: 24px;
+  gap: 24px;
 }
 
 code {
