@@ -1,0 +1,7 @@
+.container {
+    gap: 24px;
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+    padding: 24px;
+}

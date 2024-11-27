@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  ---color-primary:  #7B2CBF;
+  ---color-font: #10002B;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -44,9 +46,9 @@ body {
   font-family: "Jura", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 345px;
-  padding: 24px;
+  width: 393px;
   gap: 24px;
+  color: var(---color-font);
 }
 
 code {
