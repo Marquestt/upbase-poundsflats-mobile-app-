@@ -14,11 +14,11 @@ const Form = () => {
             <Input type="text" placeholder="CEP" maxLength="10" pattern="\d{5}-\d{3}" required="required"/>
             <Input type="text" placeholder="Endereço" required="required"/>
             <div className={styles.containerMin}>
-                <Input type="number" placeholder="Número" required="required" width="164px"/>
-                <Input type="text" placeholder="Complemento" width="164px"/>
+                <Input type="number" placeholder="Número" required="required" width="50%"/>
+                <Input type="text" placeholder="Complemento" width="50%"/>
             </div>
             <div className={styles.containerMin}>
-                <Input type="text" placeholder="Cidade" required="required" width="216px"/>
+                <Input type="text" placeholder="Cidade" required="required" width="70%"/>
                 <Select/>
             </div>
             <Input type="submit" value="Continuar"width="345px" height="48px" color="#fff" backgroundColor="#7B2CBF" borderRadius="8px"/>

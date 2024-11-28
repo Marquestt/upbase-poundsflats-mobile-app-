@@ -1,3 +1,4 @@
+import home2 from '../../assets/iconHome2.svg';
 import Container from '../../components/Container';
 import Form from '../../components/Form';
 import Header from '../../components/Header';
@@ -11,7 +12,7 @@ const RegisterProperty = () => {
                 <Header title="Para começarmos, precisamos de alguns dados" fontSize="20px"/>
                 <Form/>
             </Container>
-            <Modal/>
+            <Modal image={home2} backgroundColor="#fff" text="Deseja abandonar o cadastro do imóvel? Esta operação não será salva"/>
         </>
         
     )

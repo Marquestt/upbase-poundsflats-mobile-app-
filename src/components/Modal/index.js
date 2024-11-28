@@ -1,20 +1,19 @@
 import styles from './Modal.module.css';
-import home from '../../assets/iconHome.svg';
 import homeClose from '../../assets/iconHomeOpen.svg';
 import React, { useState } from "react";
 import ReactModal from "react-modal";
 
 ReactModal.setAppElement("#root");
 
-const Modal = () => {
+const Modal = ({ image, backgroundColor, text,  }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
     return(
-        <div className={styles.container}>
-            <button className={styles.button} onClick={openModal}><img className={styles.icon} src={home} alt='botão home'/></button>
+        <div className={styles.container} style={{backgroundColor}}>
+            <button className={styles.button} onClick={openModal}><img className={styles.icon} src={image}  alt='botão home'/></button>
 
             <ReactModal
                 isOpen={isModalOpen}
@@ -38,7 +37,7 @@ const Modal = () => {
             >
                 <div className={styles.modal}>
                     <img src={homeClose} alt='botão home'/>
-                    <p>Você, realmente, deseja sair do Poundsflats?</p>
+                    <p>{text}</p>
                     <div className={styles.containerButton}>
                         <button className={styles.buttonClose} onClick={CloseEvent}>Sim, sair agora</button>
                         <button className={styles.buttonStay} onClick={closeModal}>Não, quero continuar</button>

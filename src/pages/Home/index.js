@@ -1,4 +1,5 @@
 import styles from './Home.module.css';
+import home from '../../assets/iconHome.svg';
 import Header from "../../components/Header";
 import Container from "../../components/Container";
 import Filter from "../../components/Filter";
@@ -15,7 +16,7 @@ const Home = () => {
                 <Alerta/>
             </Container>
             <Menu/>
-            <Modal/>
+            <Modal image={home} text="Você, realmente, deseja sair do Poundsflats?"/>
         </>
     )
 }
