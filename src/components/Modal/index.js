@@ -1,15 +1,39 @@
 import styles from './Modal.module.css';
 import homeClose from '../../assets/iconHomeOpen.svg';
+import { useSpring, animated } from "@react-spring/web";
+import { useDrag } from "@use-gesture/react";
 import React, { useState } from "react";
 import ReactModal from "react-modal";
 
 ReactModal.setAppElement("#root");
 
 const Modal = ({ image, backgroundColor, text,  }) => {
-
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [style, api] = useSpring(() => ({
+        y: 0,
+        config: { tension: 300, friction: 30 },
+    }));
+
     const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+    const closeModal = () => {
+        api.start({ y: 0 });
+        setIsModalOpen(false);
+    };
+
+    // Gesto para arrastar o modal
+    const bind = useDrag(
+        ({ down, movement: [, my], cancel, last }) => {
+            // Fechar modal se arrastado para baixo além de 100px
+            if (my > 100 && last) {
+                cancel?.();
+                closeModal();
+            } else {
+                api.start({ y: down ? my : 0 });
+            }
+        },
+        { bounds: { top: 0, bottom: 150 }, rubberband: true }
+    );
 
     return(
         <div className={styles.container} style={{backgroundColor}}>
@@ -35,14 +59,18 @@ const Modal = ({ image, backgroundColor, text,  }) => {
                 },
                 }}
             >
-                <div className={styles.modal}>
+                <animated.div
+                    {...bind()}
+                    style={{ ...style, touchAction: "none" }}
+                    className={styles.modal}
+                >
                     <img src={homeClose} alt='botão home'/>
                     <p>{text}</p>
                     <div className={styles.containerButton}>
                         <button className={styles.buttonClose} onClick={CloseEvent}>Sim, sair agora</button>
                         <button className={styles.buttonStay} onClick={closeModal}>Não, quero continuar</button>
                     </div>
-                </div>
+                </animated.div>
             </ReactModal>
     </div>
     )
