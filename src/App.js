@@ -1,16 +1,22 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import RegisterProperty from './pages/RegisterProperty';
 
 function App() {
+  
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />,
+    },
+    {
+      path: '/cadastrar-imovel',
+      element: <RegisterProperty />,
+    },
+  ]);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/cadastrar-imovel' element={<RegisterProperty/>}></Route>
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router} />
   );
 }
 
