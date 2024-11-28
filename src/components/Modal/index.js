@@ -21,10 +21,19 @@ const Modal = ({ image, backgroundColor, text,  }) => {
         setIsModalOpen(false);
     };
 
-    // Gesto para arrastar o modal
     const bind = useDrag(
-        ({ down, movement: [, my], cancel, last }) => {
-            // Fechar modal se arrastado para baixo além de 100px
+        ({ movement: [, my], last, down, cancel }) => {
+            // Se arrastar para cima além de -50px, abre o modal
+            if (my < -50 && last) {
+                cancel?.();
+                openModal();
+            }
+        },
+        { bounds: { top: -150, bottom: 0 }, rubberband: true }
+    );
+
+    const bindModal = useDrag(
+        ({ movement: [, my], last, down, cancel }) => {
             if (my > 100 && last) {
                 cancel?.();
                 closeModal();
@@ -37,7 +46,15 @@ const Modal = ({ image, backgroundColor, text,  }) => {
 
     return(
         <div className={styles.container} style={{backgroundColor}}>
-            <button className={styles.button} onClick={openModal}><img className={styles.icon} src={image}  alt='botão home'/></button>
+            {!isModalOpen && (
+                <animated.div
+                    {...bind()}
+                    className={styles.dragHandle}
+                    style={{ touchAction: "none", height: "50px", backgroundColor: "transparent" }}
+                >
+                    <button className={styles.button} onClick={openModal}><img className={styles.icon} src={image}  alt='botão home'/></button>
+                </animated.div>
+            )}
 
             <ReactModal
                 isOpen={isModalOpen}
