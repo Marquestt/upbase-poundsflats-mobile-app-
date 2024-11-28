@@ -1,0 +1,47 @@
+.container {
+    background-color: var(---color-primary);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100vw;
+    padding: 24px 8px;
+    justify-content: center;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.modal {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 24px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 24px;
+}
+
+.containerButton {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 12px;
+}
+
+.buttonClose, .buttonStay {
+    font-size: 12px;
+    color: #fff;
+    padding: 4px 6px;
+    border: none;
+    border-radius: 8px;
+}
+
+.buttonClose {
+    background-color: var(---color-primary);
+}
+
+.buttonStay {
+    background-color: #A6A6A6;
+}
