@@ -9,7 +9,7 @@ const Alerta = () => {
             <div className={styles.container}>
                 <img src={icon} alt="Ícone carinha de espanto" />
                 <h2 className={styles.mensagem}>Você não tem nenhum imóvel cadastrado. Que tal cadastrar agora?</h2>
-                <a className={styles.button} href=''>Cadastrar meu primeiro imóvel</a>
+                <a className={styles.button} href='/cadastrar-imovel'>Cadastrar meu primeiro imóvel</a>
             </div>
         </Main>
     )
