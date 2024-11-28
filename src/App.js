@@ -1,22 +1,16 @@
-import Header from "./components/Header";
-import Container from "./components/Container";
-import Filter from "./components/Filter";
-import Alerta from "./components/Alerta";
-import Menu from "./components/Menu";
-import Modal from "./components/Modal";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import RegisterProperty from './pages/RegisterProperty';
 
 function App() {
 
   return (
-    <>
-      <Container>
-        <Header/>
-        <Filter/>
-        <Alerta/>
-      </Container>
-      <Menu/>
-      <Modal/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/cadastrar-imovel' element={<RegisterProperty/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
