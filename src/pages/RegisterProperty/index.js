@@ -7,7 +7,7 @@ const RegisterProperty = () => {
     return (
         <>
             <Container>
-                <Header title="Para começarmos, precisamos de alguns dados"/>
+                <Header title="Para começarmos, precisamos de alguns dados" fontSize="20px"/>
             </Container>
             <Modal/>
         </>
